@@ -1,0 +1,20 @@
+<div class="card-container">
+    <h2>Pull a card</h2>
+    <h3>Ask a question or just pull a card :)</h3>
+    <input id="question" type="input" placeholder="Enter your question here" />
+    <button (click)="pullCard()">Pull Card</button>
+    <br />
+    <div 
+        id="text-box" 
+        class="text-container"
+        [ngStyle]="displayText ? {'border': '2px solid #4D2369', 'background-color': '#E2CBF2'} : {}"
+    >
+        @if (displayText == 'No Answer'){
+            <p>Card pulled: {{card_no}} {{name}} ({{orientation}})</p>
+            <p>This card can mean {{meaning}}</p>
+        } @else if (displayText) {
+            <p>Card pulled: {{card_no}} {{name}} ({{orientation}})</p>
+            <p>{{displayText}}</p>
+        } @else {}
+    </div>
+</div>

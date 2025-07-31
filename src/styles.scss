@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+body {
+    background-color: black;
+}
+
+* {
+    font-family: 'Jersey 15';
+}
+
+h1 {
+    color: #F8B5B5;
+    text-align: center;
+}
+
+h2 {
+    color:#B5F8EE;
+}
+
+h3 {
+    color: #E1F8B5;
+}

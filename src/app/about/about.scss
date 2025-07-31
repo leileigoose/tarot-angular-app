@@ -1,0 +1,23 @@
+* {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    color: aliceblue;
+}
+
+.text-container {
+    margin-top: 20px;
+    padding: 1em;
+    border-radius: 0.25em;
+    max-width: 60%;
+    overflow-y: auto;
+    text-align: center;
+}
+
+a {
+    color: #00bcd4;
+    text-decoration: none;
+}
