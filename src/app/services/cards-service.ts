@@ -9,7 +9,7 @@ export class CardsService {
   http = inject(HttpClient);
 
   getCardFromApi(question: string | null = null) {
-    const url = 'http://localhost:8000/draw-card';
+    const url = 'https://tarot-python-backend.onrender.com/draw-card';
     return this.http.post<CardResponse>(url, { question });
   }
 }
