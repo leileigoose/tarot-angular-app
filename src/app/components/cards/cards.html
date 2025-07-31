@@ -2,7 +2,14 @@
     <h2>Pull a card</h2>
     <h3>Ask a question or just pull a card :)</h3>
     <input id="question" type="input" placeholder="Enter your question here" />
-    <button (click)="pullCard()">Pull Card</button>
+    <button 
+        (click)="pullCard()"
+        [disabled]="isLoading"
+        [ngClass]="{'loading-btn': isLoading, 'normal-btn': !isLoading}"
+    >
+        <span *ngIf="isLoading">Pulling...</span>
+        <span *ngIf="!isLoading">Pull Card</span>
+    </button>
     <br />
     <div 
         id="text-box" 

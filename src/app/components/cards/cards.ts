@@ -1,6 +1,7 @@
 import { Component, effect, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardsService } from '../../services/cards-service';
+import { LoadingService } from '../../services/loading-service';
 
 @Component({
   selector: 'app-cards',
@@ -10,7 +11,6 @@ import { CardsService } from '../../services/cards-service';
   styleUrl: './cards.scss'
 })
 
-
 export class Cards {
 
   displayText: string = '';
@@ -19,11 +19,22 @@ export class Cards {
   orientation: string = '';
   meaning: string = '';
 
-  constructor(private cardService: CardsService) {}
-  
+  constructor(private cardService: CardsService, private loadingService: LoadingService) {}
+
+  isLoading = false;
+
+  ngOnInit() {
+    this.loadingService.loading$.subscribe((state => {
+      this.isLoading = state;
+    }))
+  }
+
   pullCard(): void {
     const questionInput = document.getElementById('question') as HTMLInputElement;
     const question = questionInput.value;
+    
+    console.log('Loading...');
+    this.loadingService.setLoading(true);
 
     this.cardService.getCardFromApi(question).subscribe({ 
       next: (response) => {
@@ -38,6 +49,7 @@ export class Cards {
         } else {
           this.displayText = response.summary;
         }
+        this.loadingService.setLoading(false);
       },
       error: (error) => {
         console.error('Error fetching card data:', error);

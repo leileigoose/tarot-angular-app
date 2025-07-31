@@ -6,13 +6,22 @@
   text-align: center;
 }
 
-button {
+.normal-btn {
     padding: 0.5em 1em;
     background-color: #CDB5F8;
     color: black;
     border: none;
     border-radius: 0.25em;
     cursor: pointer;
+    margin-top: 20px;
+}
+
+.loading-btn {
+    padding: 0.5em 1em;
+    background-color: #ccc;
+    color: black;
+    border: none;
+    border-radius: 0.25em;
     margin-top: 20px;
 }
 
